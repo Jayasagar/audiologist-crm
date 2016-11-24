@@ -3,6 +3,10 @@
 # audiologist-crm
 Simple web service (api) which allows audiologists (hearing care professionals) to manage their customers appointments
 
+## Out of Scope
+* Authentication/Authorization
+* 
+
 ## Tech Stack
 * Spring Boot
 * Spring Data Rest
@@ -24,9 +28,8 @@ Simple web service (api) which allows audiologists (hearing care professionals) 
 ** Push to artifactory repo
 
 ## Solution approach
-Going to build micro service architecture
-
-### Components 
+Idea is to use micro service architecture
+to name few components could be
 * crm-repository
 * crm-java-sdk (Could be public facing or internal)
 * crm-backend
