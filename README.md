@@ -9,6 +9,10 @@ Simple web service (api) which allows audiologists (hearing care professionals) 
 * Spring Data MongoDB
 * Spring Web (Spring REST)
 
+## Libraries used
+* Lombok
+* 
+
 ## Tech Tasks
 * Swagger for API understanding
 * Deploy in AWS
@@ -20,13 +24,15 @@ Simple web service (api) which allows audiologists (hearing care professionals) 
 ** Push to artifactory repo
 
 ## Solution approach
-Going to build micro service architecture 
+Going to build micro service architecture
+
 ### Components 
 * crm-repository
 * crm-java-sdk (Could be public facing or internal)
 * crm-backend
 
 ## References
-* 
+* http://openmymind.net/Multiple-Collections-Versus-Embedded-Documents/#10
+* https://dzone.com/articles/when-use-mongodb-rather-mysql
 
 
