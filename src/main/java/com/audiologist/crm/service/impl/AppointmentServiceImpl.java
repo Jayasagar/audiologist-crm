@@ -2,6 +2,7 @@ package com.audiologist.crm.service.impl;
 
 import com.audiologist.crm.dto.AppointmentFeedback;
 import com.audiologist.crm.dto.AppointmentOverview;
+import com.audiologist.crm.dto.PatientFeedback;
 import com.audiologist.crm.model.Appointment;
 import com.audiologist.crm.repo.AppointmentRepository;
 import com.audiologist.crm.repo.FeedbackRepository;
@@ -38,13 +39,17 @@ public class AppointmentServiceImpl implements AppointmentService {
             appointmentFeedback.setCompleted(appointment.isCompleted());
             appointmentFeedback.setDescription(appointment.getDescription());
             appointmentFeedback.setAppointmentDate(appointment.getDateTime());
+
+            List<PatientFeedback> patientFeedbacks = new ArrayList<>();
             feedbackRepository.findByAppointmentId(appointment.getId()).parallelStream().forEach(feedback -> {
-                appointmentFeedback.setComment(feedback.getComment());
-                appointmentFeedback.setCommentDate(feedback.getDate());
-                appointmentFeedback.setRating(feedback.getRating());
-                appointmentFeedback.setEmail(feedback.getEmail());
+                PatientFeedback patientFeedback = new PatientFeedback();
+                patientFeedback.setComment(feedback.getComment());
+                patientFeedback.setRating(feedback.getRating());
+                patientFeedback.setEmail(feedback.getEmail());
+                patientFeedbacks.add(patientFeedback);
             });
 
+            appointmentFeedback.setFeedbacks(patientFeedbacks);
             appointmentFeedbacks.add(appointmentFeedback);
         });
 

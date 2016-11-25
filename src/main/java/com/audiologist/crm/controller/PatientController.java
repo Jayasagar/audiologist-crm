@@ -18,13 +18,20 @@ public class PatientController {
 
     private @Autowired PatientService patientService;
 
-    @RequestMapping(value = "patients/{id}/next", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public AppointmentOverview getNextAppointment(@PathVariable String id) {
+    // TODO: Don't ignore type query param!!
+    @RequestMapping(value = "patients/{id}/appointments/filter", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public AppointmentOverview getNextAppointment(@PathVariable String id, @RequestParam String type) {
+        // TODO: Extend AppointmentOverview with patient info instead patient ID
         return patientService.getNextAppointment(id);
     }
 
-    @RequestMapping(value = "patients/{patinetId}/appointments/{appointmentId}/feedbacks", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity saveFeedback(@PathVariable String patinetId, @PathVariable String appointmentId, @RequestBody PatientFeedback patientFeedback) {
-        return patientService.saveFeedback(patinetId, appointmentId, patientFeedback);
+    @RequestMapping(value = "patients/{patientId}/appointments/{appointmentId}/feedbacks", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity saveFeedback(@PathVariable String patientId, @PathVariable String appointmentId, @RequestBody PatientFeedback patientFeedback) {
+        return patientService.saveFeedback(patientId, appointmentId, patientFeedback);
+    }
+
+    @RequestMapping(value = "patients/{id}/appointments", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public List<AppointmentOverview> getAppointments(@PathVariable String id) {
+        return null;
     }
 }

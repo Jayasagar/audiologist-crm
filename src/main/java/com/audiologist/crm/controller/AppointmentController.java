@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -24,8 +25,9 @@ public class AppointmentController {
         return appointmentService.getAppointmentsWithFeedback();
     }
 
-    @RequestMapping(value = "appointments/next", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public List<AppointmentOverview> getNextWeekAppointments() {
+    // TODO: Extend to support other filter capabilities
+    @RequestMapping(value = "appointments/filter", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public List<AppointmentOverview> getNextWeekAppointments(@RequestParam String type) {
         return appointmentService.getNextWeekAppointments();
     }
 }
