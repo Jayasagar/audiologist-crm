@@ -5,26 +5,29 @@ Simple web service (api) which allows audiologists (hearing care professionals) 
 
 ## Out of Scope
 * Authentication/Authorization
-* 
+* User Interface
 
 ## Tech Stack
 * Spring Boot
 * Spring Data Rest
 * Spring Data MongoDB
 * Spring Web (Spring REST)
-* Hypermedia-driven REST service with Spring HATEOAS
-
+* Hypermedia-driven REST service with Spring HATEOAS -- NOT FULLY implemented
+* Spring Test
 ## Libraries used
 * Lombok
+* Joda for Datetime
 * Swagger
+* Jackson
+* Fongo for fake mongo for integration testing
 
 ## Tech Tasks
-* Swagger for API - Not fully implemented for all API as already we use hypermedia-driven REST service with Spring HATEOAS
-* Deploy in AWS
-** Java installation
-** MongoDB
-** Deploy the app
-* Travis for CI/CD
+* Swagger for API - PARTIAL - Not fully implemented for all API as already we use hypermedia-driven REST service with Spring HATEOAS
+* Deploy in AWS -- DONE
+    ** Java installation
+    ** MongoDB
+    ** Deploy the app
+* Travis for CI/CD -- DONE
 ** Run the build/tests after every commit
 ** Push to artifactory repo
 
@@ -44,6 +47,8 @@ Idea is to use micro service architecture with the following components
 * Logging
 * Exception Handling
 * Full HATEOAS support
+
+> NOTE: When running against AWS instance: replace localhost with http://35.164.208.17:8903/audiologist/api/v1
 
 ## API Guide
 * Profile API: http://localhost:8903/audiologist/api/v1/profile
