@@ -3,6 +3,14 @@
 # audiologist-crm
 Simple web service (api) which allows audiologists (hearing care professionals) to manage their customers appointments
 
+## Links
+### Github: 
+* https://github.com/Jayasagar/audiologist-crm
+### Travis: CI/CD
+* https://travis-ci.org/Jayasagar/audiologist-crm
+### Application AWS link: 
+* http://35.164.208.17:8903/audiologist/api/v1
+
 ## Out of Scope
 * Authentication/Authorization
 * User Interface
@@ -47,9 +55,6 @@ Idea is to use micro service architecture with the following components
 * Logging
 * Exception Handling
 * Full HATEOAS support
-
-## Travis: CI/CD
-* https://travis-ci.org/Jayasagar/audiologist-crm
 
 > NOTE: When running against AWS instance: replace localhost with http://35.164.208.17:8903/audiologist/api/v1
 
