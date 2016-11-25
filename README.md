@@ -29,11 +29,19 @@ Simple web service (api) which allows audiologists (hearing care professionals) 
 ** Push to artifactory repo
 
 ## Solution approach
-Idea is to use micro service architecture
-to name few components could be
-* crm-repository
-* crm-java-sdk (Could be public facing or internal)
-* crm-backend
+Idea is to use micro service architecture with the following components 
+
+|Component Name| Component Purpose|
+| ------------- | ------------- |
+|crm-audiologist-repository|Exposes REST APIS for audiologist functionality and also for data storage|
+|crm-audiologist-java-sdk|Client SDK for crm-audiologist-repository. Eg: crm-backend can use this|
+|crm-patient-repository|Exposes REST APIS for Patient functionality and also for data storage|
+|crm-patient-java-sdk|Client SDK for crm-patient-repository. Eg: crm-backend can use this|
+|crm-backend|Actual public facing component for web application|
+
+## Limitations
+* Pagination support for an overview of all appointments and their ratings
+* 
 
 ## APIS
 #### Create Patient

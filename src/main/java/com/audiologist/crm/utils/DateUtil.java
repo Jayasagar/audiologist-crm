@@ -1,7 +1,21 @@
 package com.audiologist.crm.utils;
 
-/**
- * Created by jayasagar on 25/11/2016.
- */
-public class DateUtil {
+import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
+
+public final class DateUtil {
+    private DateUtil() {}
+
+    public static DateTime getStartOfTheWeek() {
+        LocalDate today = LocalDate.now();
+        int old = today.getDayOfWeek();
+        int monday = 1;
+
+        if (monday <= old) {
+            monday += 7;
+        }
+        LocalDate next = today.plusDays(monday - old);
+
+        return next.toDateTimeAtStartOfDay();
+    }
 }

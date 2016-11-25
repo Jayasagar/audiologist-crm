@@ -1,12 +1,14 @@
 package com.audiologist.crm.service;
 
 import com.audiologist.crm.dto.AppointmentFeedback;
+import com.audiologist.crm.dto.AppointmentOverview;
 import com.audiologist.crm.model.Appointment;
 import com.audiologist.crm.model.Feedback;
 import com.audiologist.crm.repo.AppointmentRepository;
 import com.audiologist.crm.repo.FeedbackRepository;
 import com.audiologist.crm.service.impl.AppointmentServiceImpl;
 import com.google.common.collect.Lists;
+import org.joda.time.DateTime;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,4 +36,13 @@ public class AppointmentServiceImplTest {
         Assert.assertTrue(appointmentsWithFeedback.size() == 1);
     }
 
+    @Test
+    public void get_next_week_appointments_should_work() {
+
+        Mockito.when(appointmentRepository.nextAppointments(Mockito.any(DateTime.class), Mockito.any(DateTime.class))).thenReturn(Lists.newArrayList(new Appointment()));
+
+        List<AppointmentOverview> appointmentsWithFeedback = appointmentService.getNextWeekAppointments();
+
+        Assert.assertTrue(appointmentsWithFeedback.size() == 1);
+    }
 }

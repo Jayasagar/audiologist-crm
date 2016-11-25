@@ -48,6 +48,7 @@ dependencies {
     // Extras , Lombok
     compileOnly "org.projectlombok:lombok:1.16.10"
     compile group: 'joda-time', name: 'joda-time', version: '2.9.4'
+    compile("com.fasterxml.jackson.datatype:jackson-datatype-joda")
 
     // Tests
     testCompile("org.springframework.boot:spring-boot-starter-test")

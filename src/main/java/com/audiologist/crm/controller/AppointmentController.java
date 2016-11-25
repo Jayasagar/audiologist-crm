@@ -3,6 +3,7 @@ package com.audiologist.crm.controller;
 
 import com.audiologist.crm.RequestMappingURI;
 import com.audiologist.crm.dto.AppointmentFeedback;
+import com.audiologist.crm.dto.AppointmentOverview;
 import com.audiologist.crm.service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -21,5 +22,10 @@ public class AppointmentController {
     @RequestMapping(value = "appointments/feedbacks", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public List<AppointmentFeedback> getAppointmentsWithFeedback() {
         return appointmentService.getAppointmentsWithFeedback();
+    }
+
+    @RequestMapping(value = "appointments/next", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public List<AppointmentOverview> getNextWeekAppointments() {
+        return appointmentService.getNextWeekAppointments();
     }
 }
