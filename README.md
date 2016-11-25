@@ -48,6 +48,9 @@ Idea is to use micro service architecture with the following components
 * Exception Handling
 * Full HATEOAS support
 
+## Travis: CI/CD
+* https://travis-ci.org/Jayasagar/audiologist-crm
+
 > NOTE: When running against AWS instance: replace localhost with http://35.164.208.17:8903/audiologist/api/v1
 
 ## API Guide
