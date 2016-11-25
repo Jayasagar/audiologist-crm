@@ -13,4 +13,7 @@ public interface AppointmentRepository extends MongoRepository<Appointment, Stri
 
     @Query("{ 'dateTime' : { $gt: ?0, $lt: ?1 } }")
     List<Appointment> nextAppointments(DateTime startDate, DateTime endDate);
+
+    @Query("{ 'dateTime' : { $gt: ?0, $lt: ?1 } }")
+    List<Appointment> patientNextAppointment(String patientId);
 }

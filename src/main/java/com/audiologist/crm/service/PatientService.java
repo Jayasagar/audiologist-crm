@@ -1,5 +1,7 @@
 package com.audiologist.crm.service;
 
+import com.audiologist.crm.dto.AppointmentOverview;
+
 public interface PatientService {
-    //public
+    AppointmentOverview getNextAppointment(String patientId);
 }

@@ -10,6 +10,10 @@ import com.audiologist.crm.utils.DateUtil;
 import com.google.common.collect.Lists;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,6 +23,9 @@ import java.util.List;
 public class AppointmentServiceImpl implements AppointmentService {
     private @Autowired AppointmentRepository appointmentRepository;
     private @Autowired FeedbackRepository feedbackRepository;
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
 
     // FIXME: Pagination support
     @Override
@@ -60,5 +67,26 @@ public class AppointmentServiceImpl implements AppointmentService {
             appointmentOverviews.add(appointmentOverview);
         });
         return appointmentOverviews;
+    }
+
+    @Override
+    public AppointmentOverview getPatientNextAppointment(String patientId) {
+
+        Query query = new Query();
+        query.with(new Sort(Sort.Direction.ASC,"dateTime"));
+        query.addCriteria(new Criteria().andOperator(Criteria.where("patientId").is(patientId),
+                Criteria.where("completed").is(false)));
+
+        List<Appointment> appointments = mongoTemplate.find(query, Appointment.class);
+
+        if (appointments != null && appointments.size()>0) {
+            Appointment appointment = appointments.get(0);
+            AppointmentOverview appointmentOverview = new AppointmentOverview();
+            appointmentOverview.setDescription(appointment.getDescription());
+            appointmentOverview.setDateTime(appointment.getDateTime());
+            appointmentOverview.setPatientId(appointment.getPatientId());
+            return appointmentOverview;
+        }
+        return null;
     }
 }

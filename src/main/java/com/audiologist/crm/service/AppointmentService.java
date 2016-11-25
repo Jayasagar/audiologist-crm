@@ -10,4 +10,6 @@ public interface AppointmentService {
     List<AppointmentFeedback> getAppointmentsWithFeedback();
 
     List<AppointmentOverview> getNextWeekAppointments();
+
+    AppointmentOverview getPatientNextAppointment(String patientId);
 }
