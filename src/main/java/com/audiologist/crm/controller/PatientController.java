@@ -1,12 +1,13 @@
 package com.audiologist.crm.controller;
 
+import com.audiologist.crm.RequestMappingURI;
 import com.audiologist.crm.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/audiologist/api/v1")
+@RequestMapping(RequestMappingURI.BASE_URL)
 public class PatientController {
 
     private @Autowired PatientService patientService;
