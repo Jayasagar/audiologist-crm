@@ -1,10 +1,9 @@
 package com.audiologist.crm.repo;
 
-import com.audiologist.crm.model.Patient;
+import com.audiologist.crm.model.Appointment;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface AppointmentRepository extends MongoRepository<Patient, String> {
+public interface AppointmentRepository extends MongoRepository<Appointment, String> {
 
 }

@@ -2,7 +2,7 @@ package com.audiologist.crm.repo;
 
 import com.audiologist.crm.Application;
 import com.audiologist.crm.FongoConfig;
-import com.audiologist.crm.model.Patient;
+import com.audiologist.crm.model.Appointment;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,30 +15,31 @@ import org.springframework.test.context.web.WebAppConfiguration;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {Application.class, FongoConfig.class})
 @WebAppConfiguration
-public class PatientRepositoryTest {
+public class AppointmentRepositoryTest {
 
     @Autowired
-    private PatientRepository patientRepository;
+    private AppointmentRepository appointmentRepository;
 
     @Before
     public void tearDown() {
         // Delete all records before running each test
-        patientRepository.deleteAll();
+        appointmentRepository.deleteAll();
     }
 
     @Test
     public void savePatientTest() {
         // Arrange
-        Patient patient = createPatient("Sachin");
+        Appointment appointment = createAppointment();
         // Act
-        patientRepository.save(patient);
+        appointmentRepository.save(appointment);
         // Assert
-        Assert.assertNotNull(patient.getId());
+        Assert.assertNotNull(appointment.getId());
     }
 
-    private Patient createPatient(String name) {
-        Patient patient = new Patient();
-        patient.setName(name);
-        return patient;
+    private Appointment createAppointment() {
+        Appointment appointment = new Appointment();
+        appointment.setDescription("Test");
+        appointment.setCompleted(false);
+        return appointment;
     }
 }

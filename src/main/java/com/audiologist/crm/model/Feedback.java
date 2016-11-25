@@ -17,4 +17,5 @@ public class Feedback {
     private String email;
     private String patientId;
     private String appointmentId;
+    private String date;
 }

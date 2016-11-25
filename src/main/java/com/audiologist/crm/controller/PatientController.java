@@ -1,17 +1,20 @@
 package com.audiologist.crm.controller;
 
-import com.audiologist.crm.model.Patient;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.*;
+import com.audiologist.crm.service.PatientService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/audiologist/api/v1")
 public class PatientController {
 
-    @ApiOperation(value = "Creates an Patient")
-    @RequestMapping(value = "/patients", method = RequestMethod.POST)
-    public ResponseStatus createPatient(@RequestBody final Patient patient) {
+    private @Autowired PatientService patientService;
 
-        return null;
-    }
+//    @ApiOperation(value = "Creates an Patient")
+//    @RequestMapping(value = "/patients123", method = RequestMethod.POST)
+//    public ResponseStatus createPatient(@RequestBody final Patient patient) {
+//
+//        return null;
+//    }
 }

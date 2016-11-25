@@ -6,6 +6,8 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Document
 @Getter @Setter
@@ -17,5 +19,5 @@ public class Patient {
     private String email;
     private String phone;
     private String notes;
-    private VisitRecord visitRecord;
+    private List<VisitRecord> visitRecord;
 }

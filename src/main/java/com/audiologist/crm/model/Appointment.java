@@ -5,8 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.sql.Date;
+import org.springframework.data.rest.core.annotation.Description;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Document
@@ -15,7 +14,9 @@ import java.sql.Date;
 public class Appointment {
     @Id
     private String id;
-    private Date date;
-    private String time;
+    @Description("Appointment date")
+    private String dateTime;
+    private String description;
     private String patientId;
+    private boolean completed;
 }
