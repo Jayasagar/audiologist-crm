@@ -12,6 +12,8 @@ Simple web service (api) which allows audiologists (hearing care professionals) 
 * https://travis-ci.org/Jayasagar/audiologist-crm
 #### Application AWS link: 
 * http://35.164.208.17:8903/audiologist/api/v1
+#### Application Monitoring 
+* http://35.164.208.17:8904/health
 
 ### Steps to run application
 * Clone the project

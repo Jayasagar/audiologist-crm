@@ -5,6 +5,7 @@ import com.audiologist.crm.dto.AppointmentOverview;
 import com.audiologist.crm.dto.PatientFeedback;
 import com.audiologist.crm.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.core.annotation.Description;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(RequestMappingURI.BASE_URL)
+@Description("A controller for handling requests for Patient")
 public class PatientController {
 
     private @Autowired PatientService patientService;

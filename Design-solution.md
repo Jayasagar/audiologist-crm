@@ -2,7 +2,8 @@
 Leveraged the power of Spring Boot production ready capabilities and built this simple audiologist CRM application functionality! 
 
 ## Solution in Mind
-Idea is to use micro service architecture with the following components 
+* Idea is to use micro service architecture with the following components 
+* Hypermedia-driven REST service with Spring HATEOAS -- NOT FULLY implemented
 
 |Component Name| Component Purpose|
 | ------------- | ------------- |
@@ -17,7 +18,6 @@ Idea is to use micro service architecture with the following components
 * Spring Data Rest
 * Spring Data MongoDB
 * Spring Web (Spring REST)
-* Hypermedia-driven REST service with Spring HATEOAS -- NOT FULLY implemented
 * Spring Test
 * Gradle
 
