@@ -34,6 +34,7 @@ Leveraged the power of Spring Boot production ready capabilities and built this 
     ** Java installation
     ** MongoDB
     ** Deploy the app
+    ** Run service as a background
 * Travis for CI/CD -- DONE
 ** Run the build/tests after every commit
 ** Push to artifactory repo
@@ -41,3 +42,4 @@ Leveraged the power of Spring Boot production ready capabilities and built this 
 ## References
 * http://openmymind.net/Multiple-Collections-Versus-Embedded-Documents/#10
 * https://dzone.com/articles/when-use-mongodb-rather-mysql
+* http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api

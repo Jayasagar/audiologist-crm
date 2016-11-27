@@ -71,6 +71,7 @@ Sample response
 ```
 
 #### User Story:4 as an audiologist I want to see an overview of the next week’s appointments
+Eg: It gives Next week appointments Monday as the start date till Friday :)
 GET - End point:: http://localhost:8903/audiologist/api/v1/appointments/filter?type=nextWeek
 Sample response
 ```json
