@@ -3,6 +3,7 @@ package com.audiologist.crm.controller;
 import com.audiologist.crm.RequestMappingURI;
 import com.audiologist.crm.dto.AppointmentOverview;
 import com.audiologist.crm.dto.PatientFeedback;
+import com.audiologist.crm.model.CRMHttpResponse;
 import com.audiologist.crm.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.Description;
@@ -28,7 +29,7 @@ public class PatientController {
     }
 
     @RequestMapping(value = "patients/{patientId}/appointments/{appointmentId}/feedbacks", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity saveFeedback(@PathVariable String patientId, @PathVariable String appointmentId, @RequestBody PatientFeedback patientFeedback) {
+    public CRMHttpResponse saveFeedback(@PathVariable String patientId, @PathVariable String appointmentId, @RequestBody PatientFeedback patientFeedback) {
         return patientService.saveFeedback(patientId, appointmentId, patientFeedback);
     }
 

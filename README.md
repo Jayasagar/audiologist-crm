@@ -27,10 +27,10 @@ Simple web service (api) which allows audiologists (hearing care professionals) 
 * User Interface
 
 ### Limitations
-* Production-ready features such as metrics, health checks and externalized configuration
+* Partially Done - Production-ready features such as metrics, health checks and externalized configuration
 * Pagination support
 * Logging
-* Exception Handling
+* Business specific error codes
 * Full HATEOAS support
 
 ### Known issues
