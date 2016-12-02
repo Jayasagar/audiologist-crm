@@ -34,14 +34,14 @@ public class AppointmentServiceImpl implements AppointmentService {
         List<AppointmentFeedback> appointmentFeedbacks = new ArrayList<>();
         List<Appointment> appointments = appointmentRepository.findAll();
 
-        appointments.parallelStream().forEach(appointment -> {
+        appointments.stream().forEach(appointment -> {
             AppointmentFeedback appointmentFeedback = new AppointmentFeedback();
             appointmentFeedback.setCompleted(appointment.isCompleted());
             appointmentFeedback.setDescription(appointment.getDescription());
             appointmentFeedback.setAppointmentDate(appointment.getDateTime());
 
             List<PatientFeedback> patientFeedbacks = new ArrayList<>();
-            feedbackRepository.findByAppointmentId(appointment.getId()).parallelStream().forEach(feedback -> {
+            feedbackRepository.findByAppointmentId(appointment.getId()).stream().forEach(feedback -> {
                 PatientFeedback patientFeedback = new PatientFeedback();
                 patientFeedback.setComment(feedback.getComment());
                 patientFeedback.setRating(feedback.getRating());
