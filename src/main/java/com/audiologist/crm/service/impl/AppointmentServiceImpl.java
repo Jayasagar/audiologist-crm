@@ -64,7 +64,7 @@ public class AppointmentServiceImpl implements AppointmentService {
         List<Appointment> appointments = appointmentRepository.nextAppointments(next, next.plusDays(5));
 
         List<AppointmentOverview> appointmentOverviews = Lists.newArrayList();
-        appointments.parallelStream().forEach(appointment -> {
+        appointments.stream().forEach(appointment -> {
             AppointmentOverview appointmentOverview = new AppointmentOverview();
             appointmentOverview.setDescription(appointment.getDescription());
             appointmentOverview.setDateTime(appointment.getDateTime());
